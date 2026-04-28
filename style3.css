@@ -1,0 +1,370 @@
+/* --- GERAL E VARIÁVEIS --- */
+:root {
+    --dark-blue: #1A237E;
+    --secondary-blue: #004D7A; /* NOVA COR */
+    --lead-gray: #37474F;
+    --accent-gold: #FFB300;
+    --off-white: #FAFAFA; /* COR DE FUNDO SUTIL */
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--off-white);
+    color: var(--lead-gray);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- BOTÕES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--accent-gold);
+    color: var(--dark-blue);
+}
+
+.btn-primary:hover {
+    background-color: #ffc107;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--dark-blue);
+    border: 2px solid var(--dark-blue);
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+/* --- HEADER --- */
+.main-header {
+    background-color: var(--white);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.logo strong {
+    color: var(--accent-gold);
+}
+
+.main-nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--lead-gray);
+    font-weight: 600;
+}
+#login-btn{
+    color: var(--dark-blue);
+    background-color: var(--accent-gold);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+#sobre-btn{
+    color: var(--accent-gold);
+    background-color: var(--dark-blue);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.header-actions .login-btn {
+    margin-right: 15px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    text-decoration: none;
+}
+
+/* --- SEÇÃO DE DESTAQUE --- */
+.product-highlight {
+    background-color: var(--white);
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.highlight-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.highlight-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.highlight-badge {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--dark-blue);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.highlight-text h2 {
+    font-size: 32px;
+    color: var(--dark-blue);
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.highlight-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+/* ... (O restante do CSS para .hero p, .search-form, etc., permanece o mesmo) ... */
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* --- SEÇÕES DE CONTEÚDO --- */
+.trust-features, .featured-equipment, .cta-operators {
+    padding: 60px 0;
+}
+
+.trust-features {
+    background-color: var(--off-white);
+}
+
+.trust-features .container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 30px;
+}
+
+.feature img {
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+/* --- EQUIPAMENTOS EM DESTAQUE --- */
+.featured-equipment {
+    background-color: var(--white);
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.featured-equipment h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--dark-blue);
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.equipment-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ... (O restante do CSS para .equipment-card permanece o mesmo) ... */
+
+.equipment-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin: 0 0 5px 0;
+    color: var(--dark-blue);
+    font-size: 18px;
+}
+
+.location {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.price strong {
+    color: var(--dark-blue);
+}
+
+.card-content .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* --- CTA OPERADORES --- */
+.cta-operators {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-operators h2 {
+    font-size: 32px;
+}
+
+.cta-operators p {
+    max-width: 600px;
+    margin: 15px auto 30px auto;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--secondary-blue); /* COR ATUALIZADA */
+    color: var(--off-white);
+    padding-top: 50px;
+}
+
+.main-footer .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.main-footer .logo {
+    color: var(--white);
+}
+
+.footer-links a {
+    display: block;
+    color: var(--off-white);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s ease;
+}
+.footer-links a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #005f91;
+    font-size: 14px;
+}
+
+/* --- AJUSTES PARA TELAS MENORES (RESPONSIVIDADE) --- */
+@media (max-width: 768px) {
+    .highlight-container {
+        grid-template-columns: 1fr; /* Colunas empilhadas */
+        text-align: center;
+    }
+
+    .highlight-text h2 {
+        font-size: 26px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+}
