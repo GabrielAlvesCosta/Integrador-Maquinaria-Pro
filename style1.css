@@ -79,3 +79,11 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
 }
+
+/* Links dentro dos Modais */
+#mostrarCriarLink, #mostrarEntrarLink {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--dark-blue);
+    font-size: 0.9rem;
+}
