@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Equipamentos e Operadores - Maquinaria PRO</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body class="bg-light">
+
+    <header class="main-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand logo" href="index1.html">Maquinaria <strong>PRO</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="busca.html">Encontrar Serviços</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="cadastro.html" class="login-btn text-decoration-none me-3">Entrar</a>
+                        <a href="#" class="btn btn-primary">Anunciar Equipamento</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="fw-bold text-dark-blue">Resultados da Busca</h2>
+                    <p class="text-muted">Mostrando 1-9 de 42 resultados para "Maceió, AL"</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                
+                <aside class="col-lg-3">
+                    <div class="card border-0 shadow-sm p-4">
+                        <h5 class="fw-bold text-dark-blue mb-3">Filtros</h5>
+                        
+                        <form>
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">O que você procura?</label>
+                                <select class="form-select">
+                                    <option value="todos">Ambos</option>
+                                    <option value="maquina">Apenas Máquinas</option>
+                                    <option value="operador">Apenas Operadores</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Categoria</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat1" checked>
+                                    <label class="form-check-label" for="cat1">Escavadeiras</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat2">
+                                    <label class="form-check-label" for="cat2">Guindastes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat3">
+                                    <label class="form-check-label" for="cat3">Caminhões</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat4">
+                                    <label class="form-check-label" for="cat4">Compactadores</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Preço Máximo (R$/hora)</label>
+                                <input type="range" class="form-range" min="50" max="1000" step="10" id="precoRange">
+                                <div class="d-flex justify-content-between text-muted small">
+                                    <span>R$ 50</span>
+                                    <span>R$ 1000+</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">Aplicar Filtros</button>
+                        </form>
+                    </div>
+                </aside>
+
+                <div class="col-lg-9">
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted"></span>
+                        <div class="d-flex align-items-center">
+                            <label class="me-2 text-nowrap text-muted small">Ordenar por:</label>
+                            <select class="form-select form-select-sm border-0 shadow-sm">
+                                <option>Relevância</option>
+                                <option>Menor Preço</option>
+                                <option>Maior Preço</option>
+                                <option>Melhor Avaliados</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card h-100 shadow-sm border-0 card-hover">
+                                <img src="retroescavadeira.png" class="card-img-top" alt="Retroescavadeira">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-dark-blue">Retroescavadeira CAT 416E</h5>
+                                    <p class="card-text text-muted small mb-1">📍 Maceió, AL</p>
+                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 180,00</strong>/hora</p>
+                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card h-100 shadow-sm border-0 card-hover">
+                                <img src="guindaste.png" class="card-img-top" alt="Guindaste">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title text-dark-blue">Guindaste Articulado 30T</h5>
+                                    <p class="card-text text-muted small mb-1">📍 Rio Largo, AL</p>
+                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 350,00</strong>/hora</p>
+                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card h-100 shadow-sm border-0 card-hover">
+                                <img src="trabalhador.png" class="card-img-top" alt="Operador Charles Lisboa">
+                                <div class="card-body d-flex flex-column">
+                                    <span class="badge bg-success mb-2 align-self-start">Operador Verificado</span>
+                                    <h5 class="card-title text-dark-blue">Charles Lisboa</h5>
+                                    <p class="card-text text-muted small mb-1">📍 Maceió, AL</p>
+                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 62,00</strong>/hora</p>
+                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Perfil</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <nav aria-label="Navegação de páginas" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            </li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer bg-secondary-blue text-white pt-5 pb-4 mt-auto">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-4 col-lg-5 mb-4">
+                    <h5 class="logo text-white">Maquinaria <strong>PRO</strong></h5>
+                    <p class="text-white-50">Trazendo eficiência e confiança para o setor de serviços com máquinas pesadas.</p>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Navegue</h6>
+                    <p><a href="busca.html" class="text-white-50 text-decoration-none">Encontrar Equipamento</a></p>
+                    <p><a href="login.html" class="text-white-50 text-decoration-none">Entrar</a></p>
+                    <p><a href="cadastro.html" class="text-white-50 text-decoration-none">Cadastrar</a></p>
+                    <p><a href="#!" class="text-white-50 text-decoration-none">Termos de Uso</a></p>
+                </div>
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Contato</h6>
+                    <p class="text-white-50">contato@maquinariapro.com.br</p>
+                    <p class="text-white-50">(82) 99999-9999</p>
+                </div>
+            </div>
+            <div class="text-center text-white-50 border-top border-secondary pt-3 mt-3">
+                &copy; 2025 Maquinaria PRO. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
