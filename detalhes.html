@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Serviço - Maquinaria PRO</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    
+    <style>
+        .product-img {
+            max-height: 500px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+        .feature-icon {
+            font-size: 1.5rem;
+            color: #0d6efd;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <header class="main-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand logo" href="dashboard.html">Maquinaria <strong>PRO</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="busca.html">Encontrar Serviços</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a href="cadastro.html" class="login-btn text-decoration-none me-3">Cadastrar</a>
+                        <a href="login.html" class="btn btn-primary">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container" id="conteudo-detalhes">
+            <div class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+                <p class="mt-3 text-muted">Carregando informações do produto...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer bg-secondary-blue text-white pt-5 pb-4 mt-auto">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-4 col-lg-5 mb-4">
+                    <h5 class="logo text-white">Maquinaria <strong>PRO</strong></h5>
+                    <p class="text-white-50">Trazendo eficiência e confiança para o setor de serviços com máquinas pesadas.</p>
+                </div>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Navegue</h6>
+                    <p><a href="busca.html" class="text-white-50 text-decoration-none">Encontrar Equipamento</a></p>
+                    <p><a href="login.html" class="text-white-50 text-decoration-none">Entrar</a></p>
+                    <p><a href="cadastro.html" class="text-white-50 text-decoration-none">Cadastrar</a></p>
+                    <p><a href="#!" class="text-white-50 text-decoration-none">Termos de Uso</a></p>
+                </div>
+                <div class="col-md-4 col-lg-4 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Contato</h6>
+                    <p class="text-white-50">contato@maquinariapro.com.br</p>
+                    <p class="text-white-50">(82) 99999-9999</p>
+                    <p class="text-white-50">Rua dos Bobos, Número 0, Maceió, Alagoas</p>
+                </div>
+            </div>
+            <div class="text-center text-white-50 border-top border-secondary pt-3 mt-3">
+                &copy; 2026 Maquinaria PRO. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 1. Banco de dados com detalhes enriquecidos
+        const bancoDeDadosCompleto = [
+            { id: 1, tipo: 'maquina', titulo: 'Retroescavadeira CAT 416E', local: 'Maceió, AL', preco: 180, img: 'retroescavadeira.png', avaliacao: 4.5, verificado: false, descricao: 'Retroescavadeira em excelente estado de conservação. Ideal para escavações de pequeno a médio porte, abertura de valas e carregamento de materiais. Manutenção rigorosamente em dia.' },
+            { id: 2, tipo: 'maquina', titulo: 'Guindaste Articulado 30T', local: 'Rio Largo, AL', preco: 350, img: 'guindaste.png', avaliacao: 4.8, verificado: false, descricao: 'Guindaste articulado potente e versátil, com capacidade para 30 toneladas. Perfeito para içamento de pré-moldados, estruturas metálicas e movimentação de carga pesada.' },
+            { id: 3, tipo: 'operador', titulo: 'Operador Charles Lisboa', local: 'Maceió, AL', preco: 62, img: 'trabalhador.png', avaliacao: 5.0, verificado: true, descricao: 'Operador de escavadeira certificado com mais de 10 anos de experiência em obras civis e terraplanagem. Histórico impecável de segurança e eficiência.' },
+            { id: 4, tipo: 'maquina', titulo: 'Caminhão Basculante Mercedes', local: 'Arapiraca, AL', preco: 150, img: 'caminhao.png', avaliacao: 4.2, verificado: false, descricao: 'Caminhão basculante trucado, capacidade para 12m³. Ideal para transporte de areia, brita, terra e entulhos. Veículo revisado e pronto para o trabalho pesado.' },
+            { id: 5, tipo: 'maquina', titulo: 'Rolo Compactador Liso', local: 'Maceió, AL', preco: 210, img: 'compactador.png', avaliacao: 4.9, verificado: false, descricao: 'Rolo compactador vibratório liso, excelente para compactação de solos granulares, asfalto e bases para pavimentação.' },
+            { id: 6, tipo: 'operador', titulo: 'Operador Pedro Santos', local: 'Marechal Deodoro, AL', preco: 45, img: 'trabalhador3.png', avaliacao: 4.7, verificado: true, descricao: 'Motorista de caminhão caçamba e operador de pá carregadeira. Profissional pontual, com habilitação categoria E e curso de cargas indivisíveis.' }
+        ];
+
+        // 2. Pegar o ID que veio na URL (ex: detalhes.html?id=3)
+        const urlParams = new URLSearchParams(window.location.search);
+        const idProduto = parseInt(urlParams.get('id'));
+
+        const container = document.getElementById('conteudo-detalhes');
+
+        // 3. Procurar o produto no banco de dados
+        const produto = bancoDeDadosCompleto.find(item => item.id === idProduto);
+
+        // 4. Exibir o produto ou mostrar erro se não achar
+        if (produto) {
+            const precoFormatado = produto.preco.toFixed(2).replace('.', ',');
+            const badgeOperador = produto.tipo === 'operador' ? '<span class="badge bg-info mb-2 me-2">👨‍🔧 Operador</span>' : '<span class="badge bg-warning text-dark mb-2 me-2">🚜 Máquina</span>';
+            const badgeVerificado = produto.verificado ? '<span class="badge bg-success mb-2">✓ Verificado</span>' : '';
+
+            container.innerHTML = `
+                <div class="mb-3">
+                    <a href="javascript:history.back()" class="text-decoration-none text-muted">← Voltar para resultados</a>
+                </div>
+                <div class="card shadow-sm border-0">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="${produto.img}" class="product-img p-3" alt="${produto.titulo}" onerror="this.onerror=null; this.src='https://via.placeholder.com/600x500?text=Sem+Foto'">
+                        </div>
+                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column">
+                            <div>
+                                ${badgeOperador}
+                                ${badgeVerificado}
+                            </div>
+                            <h2 class="fw-bold text-dark-blue mt-2">${produto.titulo}</h2>
+                            
+                            <div class="d-flex align-items-center mb-4 mt-2">
+                                <span class="text-muted me-4">📍 ${produto.local}</span>
+                                <span class="text-warning fw-bold">⭐ ${produto.avaliacao} / 5.0</span>
+                            </div>
+
+                            <p class="fs-4 mb-4">A partir de <strong class="text-primary fs-2">R$ ${precoFormatado}</strong> <span class="fs-6 text-muted">/ hora</span></p>
+                            
+                            <h5 class="fw-semibold text-dark">Descrição</h5>
+                            <p class="text-muted mb-4">${produto.descricao}</p>
+                            
+                            <div class="mt-auto d-grid gap-2 d-md-flex">
+                                <button class="btn btn-primary btn-lg px-5">Entrar em Contato</button>
+                                <button class="btn btn-outline-secondary btn-lg px-4">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Se o ID não existir ou acessarem a página direto sem ID
+            container.innerHTML = `
+                <div class="text-center py-5">
+                    <h2 class="text-dark-blue fw-bold">Ops! Produto não encontrado.</h2>
+                    <p class="text-muted">Não conseguimos localizar os detalhes deste serviço.</p>
+                    <a href="dashboard.html" class="btn btn-primary mt-3">Voltar para o Início</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -6,19 +6,18 @@
     <title>Buscar Equipamentos e Operadores - Maquinaria PRO</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style1.css">
+
 </head>
 <body class="bg-light">
 
     <header class="main-header sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand logo" href="index1.html">Maquinaria <strong>PRO</strong></a>
+                <a class="navbar-brand logo" href="dashboard.html">Maquinaria <strong>PRO</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,63 +27,79 @@
                         <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <a href="cadastro.html" class="login-btn text-decoration-none me-3">Entrar</a>
-                        <a href="#" class="btn btn-primary">Anunciar Equipamento</a>
+                        <a href="cadastro.html" class="login-btn text-decoration-none me-3">Cadastrar</a>
+                        <a href="login.html" class="btn btn-primary">Login</a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="py-5">
+    <main class="hero bg-dark-blue text-white text-center py-5">
         <div class="container">
             
             <div class="row mb-4">
                 <div class="col-12">
                     <h2 class="fw-bold text-dark-blue">Resultados da Busca</h2>
-                    <p class="text-muted">Mostrando 1-9 de 42 resultados para "Maceió, AL"</p>
+                    <p class="text-muted" id="contador-resultados">Carregando resultados...</p>
                 </div>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4 text-start">
                 
                 <aside class="col-lg-3">
-                    <div class="card border-0 shadow-sm p-4">
+                    <div class="card border-0 shadow-sm p-4 text-dark">
                         <h5 class="fw-bold text-dark-blue mb-3">Filtros</h5>
                         
-                        <form>
+                        <form id="form-filtros">
                             <div class="mb-4">
                                 <label class="form-label fw-semibold">O que você procura?</label>
-                                <select class="form-select">
+                                <select class="form-select" id="filtro-tipo">
                                     <option value="todos">Ambos</option>
                                     <option value="maquina">Apenas Máquinas</option>
                                     <option value="operador">Apenas Operadores</option>
                                 </select>
                             </div>
 
-                            <div class="mb-4">
-                                <label class="form-label fw-semibold">Categoria</label>
+                            <div class="mb-4" id="bloco-cat-maquinas">
+                                <label class="form-label fw-semibold">Tipos de Máquinas</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cat1" checked>
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="escavadeira" id="cat1" checked>
                                     <label class="form-check-label" for="cat1">Escavadeiras</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cat2">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="guindaste" id="cat2" checked>
                                     <label class="form-check-label" for="cat2">Guindastes</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cat3">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="caminhao" id="cat3" checked>
                                     <label class="form-check-label" for="cat3">Caminhões</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="cat4">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="compactador" id="cat4" checked>
                                     <label class="form-check-label" for="cat4">Compactadores</label>
                                 </div>
                             </div>
 
+                            <div class="mb-4" id="bloco-cat-operadores">
+                                <label class="form-label fw-semibold">Especialidade (Operadores)</label>
+                                <div class="form-check">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="op-escavadeira" id="op1" checked>
+                                    <label class="form-check-label" for="op1">Op. de Escavadeira</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="op-guindaste" id="op2" checked>
+                                    <label class="form-check-label" for="op2">Op. de Guindaste</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input filtro-categoria" type="checkbox" value="op-caminhao" id="op3" checked>
+                                    <label class="form-check-label" for="op3">Motorista de Caminhão</label>
+                                </div>
+                            </div>
+
                             <div class="mb-4">
-                                <label class="form-label fw-semibold">Preço Máximo (R$/hora)</label>
-                                <input type="range" class="form-range" min="50" max="1000" step="10" id="precoRange">
+                                <label class="form-label fw-semibold">Preço Máximo: <span id="valor-preco-display" class="text-primary">R$ 1000</span>/hora</label>
+                                <input type="range" class="form-range" min="50" max="1000" step="10" value="1000" id="filtro-preco">
                                 <div class="d-flex justify-content-between text-muted small">
                                     <span>R$ 50</span>
                                     <span>R$ 1000+</span>
@@ -98,80 +113,36 @@
 
                 <div class="col-lg-9">
                     
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted"></span>
+                    <div class="d-flex justify-content-between align-items-center mb-3 text-dark">
+                        <span class="text-muted" id="info-paginacao"></span>
                         <div class="d-flex align-items-center">
                             <label class="me-2 text-nowrap text-muted small">Ordenar por:</label>
-                            <select class="form-select form-select-sm border-0 shadow-sm">
-                                <option>Relevância</option>
-                                <option>Menor Preço</option>
-                                <option>Maior Preço</option>
-                                <option>Melhor Avaliados</option>
+                            <select class="form-select form-select-sm border-0 shadow-sm" id="ordenacao">
+                                <option value="relevancia">Relevância</option>
+                                <option value="menorPreco">Menor Preço</option>
+                                <option value="maiorPreco">Maior Preço</option>
+                                <option value="melhorAvaliado">Melhor Avaliados</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="row g-4">
+                    <div class="position-relative px-4" id="container-carrossel">
                         
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img src="retroescavadeira.png" class="card-img-top" alt="Retroescavadeira">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title text-dark-blue">Retroescavadeira CAT 416E</h5>
-                                    <p class="card-text text-muted small mb-1">📍 Maceió, AL</p>
-                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 180,00</strong>/hora</p>
-                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
+                        <button id="btn-prev" class="btn btn-primary btn-navegacao position-absolute top-50 start-0 translate-middle-y shadow" style="display: none;">&#10094;</button>
 
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img src="guindaste.png" class="card-img-top" alt="Guindaste">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title text-dark-blue">Guindaste Articulado 30T</h5>
-                                    <p class="card-text text-muted small mb-1">📍 Rio Largo, AL</p>
-                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 350,00</strong>/hora</p>
-                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Detalhes</a>
-                                </div>
+                        <div class="row g-4" id="grid-resultados">
                             </div>
-                        </div>
 
-                        <div class="col-md-6 col-xl-4">
-                            <div class="card h-100 shadow-sm border-0 card-hover">
-                                <img src="trabalhador.png" class="card-img-top" alt="Operador Charles Lisboa">
-                                <div class="card-body d-flex flex-column">
-                                    <span class="badge bg-success mb-2 align-self-start">Operador Verificado</span>
-                                    <h5 class="card-title text-dark-blue">Charles Lisboa</h5>
-                                    <p class="card-text text-muted small mb-1">📍 Maceió, AL</p>
-                                    <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ 62,00</strong>/hora</p>
-                                    <a href="#" class="btn btn-outline-secondary mt-auto">Ver Perfil</a>
-                                </div>
-                            </div>
-                        </div>
+                        <button id="btn-next" class="btn btn-primary btn-navegacao position-absolute top-50 end-0 translate-middle-y shadow" style="display: none;">&#10095;</button>
 
                     </div>
-
-                    <nav aria-label="Navegação de páginas" class="mt-5">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-                            </li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Próximo</a>
-                            </li>
-                        </ul>
-                    </nav>
 
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="main-footer bg-secondary-blue text-white pt-5 pb-4 mt-auto">
+    <footer class="main-footer bg-secondary-blue text-white pt-5 pb-4">
         <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-md-4 col-lg-5 mb-4">
@@ -189,6 +160,7 @@
                     <h6 class="text-uppercase fw-bold mb-3">Contato</h6>
                     <p class="text-white-50">contato@maquinariapro.com.br</p>
                     <p class="text-white-50">(82) 99999-9999</p>
+                    <p class="text-white-50">Rua dos Bobos, Número 0, Maceió, Alagoas</p>
                 </div>
             </div>
             <div class="text-center text-white-50 border-top border-secondary pt-3 mt-3">
@@ -198,5 +170,161 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmxc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // 1. Banco de Dados
+        const bancoDeDados = [
+            { id: 1, tipo: 'maquina', categoria: 'escavadeira', titulo: 'Retroescavadeira CAT 416E', local: 'Maceió, AL', preco: 180, img: 'retroescavadeira.png', avaliacao: 4.5, verificado: false },
+            { id: 2, tipo: 'maquina', categoria: 'guindaste', titulo: 'Guindaste Articulado 30T', local: 'Rio Largo, AL', preco: 350, img: 'guindaste.png', avaliacao: 4.8, verificado: false },
+            { id: 3, tipo: 'operador', categoria: 'op-escavadeira', titulo: 'Charles Lisboa', local: 'Maceió, AL', preco: 62, img: 'trabalhador.png', avaliacao: 5.0, verificado: true },
+            { id: 4, tipo: 'maquina', categoria: 'caminhao', titulo: 'Caminhão Basculante Traçado', local: 'Arapiraca, AL', preco: 150, img: 'caminhao.png', avaliacao: 4.2, verificado: false },
+            { id: 5, tipo: 'maquina', categoria: 'compactador', titulo: 'Rolo Compactador Liso', local: 'Maceió, AL', preco: 210, img: 'compactador.png', avaliacao: 4.9, verificado: false },
+            { id: 6, tipo: 'operador', categoria: 'op-guindaste', titulo: 'João Pereira', local: 'Marechal Deodoro, AL', preco: 55, img: 'trabalhador2.png', avaliacao: 4.1, verificado: false },
+            { id: 7, tipo: 'operador', categoria: 'op-caminhao', titulo: 'Pedro Santos', local: 'Maceió, AL', preco: 45, img: 'trabalhador3.png', avaliacao: 4.7, verificado: true }
+        ];
+
+        // 2. Elementos e Variáveis Globais
+        const formFiltros = document.getElementById('form-filtros');
+        const selectTipo = document.getElementById('filtro-tipo');
+        const checkboxesCategoria = document.querySelectorAll('.filtro-categoria');
+        const inputPreco = document.getElementById('filtro-preco');
+        const displayPreco = document.getElementById('valor-preco-display');
+        const selectOrdenacao = document.getElementById('ordenacao');
+        const gridResultados = document.getElementById('grid-resultados');
+        const contadorResultados = document.getElementById('contador-resultados');
+        const infoPaginacao = document.getElementById('info-paginacao');
+        const blocoMaquinas = document.getElementById('bloco-cat-maquinas');
+        const blocoOperadores = document.getElementById('bloco-cat-operadores');
+        
+        // Botões de navegação
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        // Variáveis de paginação e animação
+        let resultadosFiltradosGlobais = [];
+        let paginaAtual = 1;
+        const limitePorPagina = 3;
+        let direcaoAnimacao = 'proxima';
+
+        // Atualiza o texto do preço em tempo real
+        inputPreco.addEventListener('input', (e) => {
+            displayPreco.innerText = `R$ ${e.target.value}`;
+        });
+
+        selectTipo.addEventListener('change', (e) => {
+            const tipo = e.target.value;
+            blocoMaquinas.style.display = (tipo === 'todos' || tipo === 'maquina') ? 'block' : 'none';
+            blocoOperadores.style.display = (tipo === 'todos' || tipo === 'operador') ? 'block' : 'none';
+        });
+
+        // 3. Função que Aplica os Filtros e Ordena
+        function aplicarFiltros(evento) {
+            if (evento) evento.preventDefault();
+            
+            paginaAtual = 1;
+            direcaoAnimacao = 'proxima'; // Reseta animação ao filtrar
+
+            const tipoDesejado = selectTipo.value;
+            const precoMaximo = parseFloat(inputPreco.value);
+            
+            const categoriasMarcadas = Array.from(checkboxesCategoria)
+                                            .filter(chk => chk.checked)
+                                            .map(chk => chk.value);
+
+            let resultados = bancoDeDados.filter(item => {
+                const passaTipo = tipoDesejado === 'todos' || item.tipo === tipoDesejado;
+                const passaPreco = item.preco <= precoMaximo;
+                const passaCategoria = categoriasMarcadas.includes(item.categoria);
+
+                return passaTipo && passaPreco && passaCategoria;
+            });
+
+            const ordemDesejada = selectOrdenacao.value;
+            if (ordemDesejada === 'menorPreco') {
+                resultados.sort((a, b) => a.preco - b.preco);
+            } else if (ordemDesejada === 'maiorPreco') {
+                resultados.sort((a, b) => b.preco - a.preco);
+            } else if (ordemDesejada === 'melhorAvaliado') {
+                resultados.sort((a, b) => b.avaliacao - a.avaliacao);
+            }
+
+            resultadosFiltradosGlobais = resultados;
+            contadorResultados.innerText = `Encontramos ${resultados.length} resultados.`;
+            
+            renderizarPagina();
+        }
+
+        // 4. Função que desenha os itens na tela com animação
+        function renderizarPagina() {
+            gridResultados.innerHTML = ''; 
+
+            if (resultadosFiltradosGlobais.length === 0) {
+                gridResultados.innerHTML = `<div class="col-12 text-center py-5"><h5 class="text-dark">Nenhum resultado encontrado.</h5></div>`;
+                btnPrev.style.display = 'none';
+                btnNext.style.display = 'none';
+                infoPaginacao.innerText = '';
+                return;
+            }
+
+            const indexInicio = (paginaAtual - 1) * limitePorPagina;
+            const indexFim = indexInicio + limitePorPagina;
+            const itensDestaPagina = resultadosFiltradosGlobais.slice(indexInicio, indexFim);
+            const totalPaginas = Math.ceil(resultadosFiltradosGlobais.length / limitePorPagina);
+
+            infoPaginacao.innerText = `Página ${paginaAtual} de ${totalPaginas}`;
+
+            const classeAnimacao = direcaoAnimacao === 'proxima' ? 'slide-proxima' : 'slide-anterior';
+
+            itensDestaPagina.forEach(item => {
+                const precoFormatado = item.preco.toFixed(2).replace('.', ',');
+                const badgeVerificado = item.verificado 
+                    ? `<span class="badge bg-success mb-2 align-self-start">Operador Verificado</span>` 
+                    : '';
+
+                const cardHTML = `
+                    <div class="col-md-4 text-dark ${classeAnimacao}">
+                        <div class="card h-100 shadow-sm border-0 card-hover">
+                            <img src="${item.img}" class="card-img-top" alt="${item.titulo}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Sem+Foto'">
+                            <div class="card-body d-flex flex-column">
+                                ${badgeVerificado}
+                                <h5 class="card-title text-dark-blue fw-bold" style="font-size: 1.1rem;">${item.titulo}</h5>
+                                <p class="card-text text-muted small mb-1">📍 ${item.local} <span class="float-end">⭐ ${item.avaliacao}</span></p>
+                                <p class="card-text fs-5 mt-2 mb-3">A partir de <strong class="text-dark-blue">R$ ${precoFormatado}</strong></p>
+                                <a href="detalhes.html?id=${item.id}" class="btn btn-outline-secondary btn-sm mt-auto">Ver Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridResultados.innerHTML += cardHTML;
+            });
+
+            btnPrev.style.display = paginaAtual > 1 ? 'flex' : 'none';
+            btnNext.style.display = paginaAtual < totalPaginas ? 'flex' : 'none';
+        }
+
+        // 5. Ações das Setas de Navegação
+        btnPrev.addEventListener('click', () => {
+            if (paginaAtual > 1) {
+                direcaoAnimacao = 'anterior';
+                paginaAtual--;
+                renderizarPagina();
+            }
+        });
+
+        btnNext.addEventListener('click', () => {
+            const totalPaginas = Math.ceil(resultadosFiltradosGlobais.length / limitePorPagina);
+            if (paginaAtual < totalPaginas) {
+                direcaoAnimacao = 'proxima';
+                paginaAtual++;
+                renderizarPagina();
+            }
+        });
+
+        // 6. Gatilhos Iniciais
+        formFiltros.addEventListener('submit', aplicarFiltros);
+        selectOrdenacao.addEventListener('change', aplicarFiltros);
+        document.addEventListener('DOMContentLoaded', aplicarFiltros);
+
+    </script>
 </body>
 </html>
